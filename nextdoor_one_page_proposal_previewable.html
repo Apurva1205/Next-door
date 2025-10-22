@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apurva → One-Page Proposal for Nextdoor</title>
+  <meta name="description" content="Apurva Ravikar Chavan — Nextdoor-focused one-pager with experiments & causal stack." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0c10; --card:#111318; --ink:#e6edf3; --muted:#9aa4af; --brand:#22c55e; --accent:#84cc16; --ring:#1f6feb; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 64px}
+    header{display:grid;gap:16px;padding:14px;border:1px solid #1e293b;background:linear-gradient(180deg,rgba(34,197,94,.10),rgba(132,204,22,.08));border-radius:18px}
+    .title{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px}
+    h1{font-size:28px;font-weight:700;margin:0;letter-spacing:.2px}
+    .role{font-weight:600;color:var(--muted)}
+    .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+    .links a{display:inline-flex;align-items:center;gap:8px;background:#0b1220;border:1px solid #263246;padding:8px 12px;border-radius:10px}
+    nav.topnav{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px;position:sticky;top:8px;z-index:50}
+    nav.topnav a{padding:8px 10px;border:1px solid #263246;border-radius:12px;background:linear-gradient(135deg,#0b1220,#0e1628);font-size:12.5px}
+    nav.topnav a.cta{border-color:var(--ring)}
+    .section{margin-top:28px}
+    .section h2{font-size:20px;margin:0 0 12px;background-image:linear-gradient(90deg,var(--brand),var(--accent),var(--brand));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% auto;animation:shine 8s linear infinite}
+    @keyframes shine{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+    .grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:14px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .card{background:linear-gradient(180deg,#111318,#0e1117) padding-box,linear-gradient(180deg,rgba(34,197,94,.25),rgba(132,204,22,.2)) border-box;border:1px solid transparent;border-radius:16px;padding:16px;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+    .card:hover{transform:translateY(-4px) rotate3d(1,-1,0,.3deg);box-shadow:0 14px 36px rgba(124,219,255,.12)}
+    .card h3{margin:2px 0 8px;font-size:16px}
+    .desc{color:var(--muted);font-size:13.5px;line-height:1.45}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+    .tag{font-size:11.5px;color:#dbeafe;border:1px dashed #334155;padding:4px 8px;border-radius:999px;background:linear-gradient(135deg,#0e1626,#0f1a2c)}
+    .btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:8px 10px;border-radius:10px;border:1px solid #2b3950;background:linear-gradient(135deg,#0b1220,#101a2f);color:var(--ink);text-decoration:none}
+    .btn:hover{border-color:var(--ring);box-shadow:0 6px 18px rgba(124,219,255,.15);transform:translateY(-1px)}
+    .note{font-size:13px;color:#cbd5e1;background:#0b1220;border:1px solid #263246;padding:10px 12px;border-radius:12px}
+    .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#0b1220;border:1px solid #263246;border-radius:14px;padding:12px;margin-top:8px}
+    .flow .box{padding:10px 12px;border-radius:10px;background:#0f172a;border:1px solid #273449;font-size:12.5px}
+    .arrow{opacity:.6}
+    .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+    .kpi{background:#0b1220;border:1px solid #263246;border-radius:14px;padding:12px;box-shadow:0 6px 16px rgba(124,219,255,.06)}
+    .kpi h4{margin:0 0 6px;font-size:13px}
+    .bar{height:8px;background:#0f172a;border:1px solid #273449;border-radius:999px;overflow:hidden}
+    .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--accent));width:60%}
+    .timeline{list-style:none;padding:0;margin:8px 0}
+    .timeline li{position:relative;padding-left:16px;margin:10px 0}
+    .timeline li::before{content:'•';position:absolute;left:0;top:0;color:var(--accent)}
+    .scenarios{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:12px}
+    @media(min-width:640px){.scenarios{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .scenario{background:var(--card);border:1px solid #1e293b;border-radius:14px;padding:12px}
+    .scenario h4{margin:0 0 6px;font-size:14px}
+    .scenario pre{white-space:pre-wrap;background:#0b1220;border:1px solid #263246;border-radius:10px;padding:8px;font-size:12.5px;overflow:auto}
+    .pill{display:inline-block;border:1px dashed #334155;padding:2px 8px;border-radius:999px;font-size:11.5px;margin-right:6px;background:linear-gradient(135deg,#0e1626,#0f1a2c);color:#dbeafe}
+    .mini{width:100%;border-collapse:separate;border-spacing:0 6px;margin-top:8px}
+    .mini th,.mini td{font-size:12.5px;padding:8px 10px;border:1px solid #263246}
+    .mini th{background:#0b1220;text-align:left}
+    .mini td{background:#0f172a}
+    footer{margin-top:40px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Preview mode */
+    #exitPreview{position:fixed;top:12px;right:12px;z-index:1000;display:none;padding:8px 12px;border-radius:10px;border:1px solid #2b3950;background:linear-gradient(135deg,#0b1220,#101a2f);color:var(--ink);text-decoration:none}
+    .preview-mode #exitPreview{display:inline-flex}
+    .preview-mode nav.topnav{display:none}
+    .preview-mode header .links{display:none}
+    .preview-mode .wrap{max-width:900px}
+      .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Apurva Ravikar Chavan</h1>
+        
+      </div>
+      <div class="links">
+        <a href="mailto:apurvachavan125@gmail.com">📧 Email</a>
+        <a href="https://www.linkedin.com/in/apurvachavan125/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <a href="https://github.com/Apurva1205" target="_blank" rel="noopener">🐙 GitHub</a>
+      </div>
+    </header>
+
+    <nav class="topnav">
+      <a href="#pitch-nextdoor" class="company active" data-theme="nextdoor">🏡 Nextdoor</a>
+      <a href="#" id="print">🖨️ Print PDF</a>
+      <a href="#" id="preview">👀 Preview</a>
+      <a href="mailto:apurvachavan125@gmail.com" class="cta">Contact</a>
+    </nav>
+
+    <section class="section" id="pitch-nextdoor">
+      <h2>Idea Pitch for Nextdoor — “NeighborGraph Insights” (Experiments + Causal + Product Health)</h2>
+      <p class="note">Level up decision-making with a <strong>repeatable experimentation + causal inference stack</strong> that turns product questions into measurable lifts on <em>engagement</em>, <em>retention</em>, and <em>quality guardrails</em>.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>TL;DR (30 sec)</h3>
+          <ul class="desc">
+            <li><strong>What:</strong> Standardized kit for <em>A/A & A/B</em>, <em>CUPED</em>, and <em>causal studies</em> (DiD/matching) with auto-generated write-ups.</li>
+            <li><strong>Why:</strong> Faster truth-finding, fewer false wins, tighter loops between insights → product changes.</li>
+            <li><strong>Impact:</strong> Lift activation → 7-day retention; improve post/reply rates; control reports/blocks.</li>
+          </ul>
+          <div class="tags"><span class="tag">A/B</span><span class="tag">CUPED</span><span class="tag">Diff-in-Diff</span><span class="tag">Uplift</span><span class="tag">Metrics</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Architecture (high level)</h3>
+          <div class="flow">
+            <span class="box">Event Log & Tracking Plan</span><span class="arrow">➜</span>
+            <span class="box">ETL / Feature Store (SQL / Airflow)</span><span class="arrow">➜</span>
+            <span class="box">Metrics Layer (activation, retention, guardrails)</span><span class="arrow">➜</span>
+            <span class="box">Experiment Service (assignments, holdouts)</span><span class="arrow">➜</span>
+            <span class="box">Analysis Kit (A/A, CUPED, LIFT)</span><span class="arrow">➜</span>
+            <span class="box">Causal (DiD / matching / IV)</span><span class="arrow">➜</span>
+            <span class="box">Dashboards & Auto-Reports</span>
+          </div>
+          <div class="kpis">
+            <div class="kpi"><h4>Activation ➜ 7-day</h4><div class="bar"><span style="width:55%"></span></div><small>Goal: +3–5% relative</small></div>
+            <div class="kpi"><h4>Reply Rate</h4><div class="bar"><span style="width:48%"></span></div><small>Goal: +2–3 pts</small></div>
+            <div class="kpi"><h4>Guardrails</h4><div class="bar"><span style="width:30%"></span></div><small>Goal: −10% reports/1k sessions</small></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Live Scenarios</h3>
+          <div class="scenarios">
+            <div class="scenario">
+              <h4>1) Feed Ranking Tweak</h4>
+              <span class="pill">A/B</span><span class="pill">Heterogeneity</span>
+              <pre>// Design: power calc → stratified randomization (neighborhood/tenure)
+// Analysis: CUPED + heterogeneity (new vs. veteran neighbors), guardrail checks</pre>
+            </div>
+            <div class="scenario">
+              <h4>2) Onboarding Nudge</h4>
+              <span class="pill">Causal</span><span class="pill">Diff-in-Diff</span>
+              <pre>// Staged rollout across cities → DiD with pre-trends & placebo tests
+// Outcomes: activation → 7-day retention + first post latency</pre>
+            </div>
+            <div class="scenario">
+              <h4>3) Notifications Mix</h4>
+              <span class="pill">Multi-Arm</span><span class="pill">Holdouts</span>
+              <pre>// Explore content × timing × channel using multi-arm + shared holdout
+// Optimize CTR without spiking unsubscribes or report rate</pre>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Roadmap (6 weeks)</h3>
+          <ul class="timeline desc">
+            <li><strong>Week 1–2:</strong> Metrics inventory & definitions; A/A & tracking health; base ETL DAGs.</li>
+            <li><strong>Week 3–4:</strong> CUPED templates; experiment summary auto-reports; guardrail suite.</li>
+            <li><strong>Week 5–6:</strong> DiD / matching pipeline; heterogeneity & uplift; exec dashboard.</li>
+          </ul>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Airflow</span><span class="tag">Dashboards</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Why me / Proof</h3>
+          <ul class="desc">
+            <li><a target="_blank" rel="noopener" href="https://github.com/Apurva1205/LLM-Assessment-Final-Test"><em>LLM-Assessment-Final-Test</em></a> — eval harnesses & reporting.</li>
+            <li><a target="_blank" rel="noopener" href="https://github.com/Apurva1205/Time-Series-Forecasting-For-Energy-Consumption"><em>Time-Series-Forecasting</em></a> — metric hygiene & drift.</li>
+            <li><a target="_blank" rel="noopener" href="https://github.com/Apurva1205/Data-Science"><em>Data-Science</em></a> — feature engineering & analytics playbooks.</li>
+            <li><a target="_blank" rel="noopener" href="https://github.com/Apurva1205/Flask-app"><em>Flask-app</em></a> — APIs for experiments & dashboards.</li>
+            <li><a target="_blank" rel="noopener" href="https://github.com/Apurva1205/AI-RESUME-ENHANCER"><em>AI-RESUME-ENHANCER</em></a> — ranking & scoring logic.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="nd-mock">
+          <h3>Mock Analysis: A/A Health + CUPED (demo)</h3>
+          <p class="desc">Tiny synthetic experiment: A/A should show ~0 lift & high p-value; CUPED reduces variance via a pre-period covariate.</p>
+          <table class="mini">
+            <tr><th>Metric</th><th>Value</th></tr>
+            <tr><td>Groups</td><td id="aa-groups">Control vs. Variant (A/A)</td></tr>
+            <tr><td>Effect (Δ mean)</td><td id="aa-effect">—</td></tr>
+            <tr><td>Std. Error</td><td id="aa-se">—</td></tr>
+            <tr><td>p-value</td><td id="aa-p">—</td></tr>
+            <tr><td>Variance Reduction (CUPED)</td><td id="cuped-vr">—</td></tr>
+          </table>
+          <div class="actions"><a href="#" class="btn" id="run-aa">▶ Run demo</a><a href="#" class="btn" id="explain-aa">ℹ️ What’s this?</a></div>
+        </article>
+
+        <article class="card" id="nd-glossary">
+          <h3>Metrics Glossary (Nextdoor)</h3>
+          <ul class="desc">
+            <li><strong>Activation:</strong> % of new neighbors who complete key setup (e.g., verify address, first follow) within N days.</li>
+            <li><strong>Retention (7-day):</strong> % of activated neighbors who return in the following 7 days.</li>
+            <li><strong>Reply Rate:</strong> Replies per 100 posts/views; segment by content type & neighborhood tenure.</li>
+            <li><strong>Guardrails:</strong> Negative outcomes we control (reports, blocks, mutes) normalized per 1k sessions.</li>
+            <li><strong>CUPED:</strong> Variance-reduction technique using pre-period covariates to improve test sensitivity.</li>
+            <li><strong>Diff-in-Diff:</strong> Causal estimator for staged rollouts; requires parallel trends checks.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="section" id="xp-projects">
+      <h2>Experience & Selected Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Data Scientist Intern — Mental Model Algorithms, Ideatrix Co. <small class="muted">Jul 2025 – Present</small></h3>
+          <ul class="desc">
+            <li>Design and implement <strong>reasoning algorithms</strong> for multi‑agent dialogue games using LLMs + cognitive models.</li>
+            <li>Model deception, inference, trust, and alignment with elements of <strong>game theory</strong> and neuroscience.</li>
+            <li>Analyze agent behavior & belief dynamics; contribute to <em>Werewolf Mental Model Arena</em> research platform.</li>
+            <li>Run experiments, synthesize findings, and write research‑ready documentation.</li>
+          </ul>
+          <div class="tags"><span class="tag">LLMs</span><span class="tag">Multi‑Agent</span><span class="tag">Reasoning</span><span class="tag">Python</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Research Assistant — Data Science, University of New Haven <small class="muted">Jan 2024 – May 2025</small></h3>
+          <ul class="desc">
+            <li>Led projects on <strong>LLM data operations</strong> and <strong>fine‑tuning pipelines</strong>; optimized training datasets.</li>
+            <li>Helped design secure deployments and <strong>active‑learning feedback loops</strong>.</li>
+            <li>Delivered clean, reproducible code and experiment reports for faculty research.</li>
+          </ul>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Transformers</span><span class="tag">MLOps</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Machine Learning Engineer — TCS Research & Innovation, Mumbai <small class="muted">Jun 2021 – Aug 2023</small></h3>
+          <ul class="desc">
+            <li>Shipped forecasting models to production (APIs + containers) and set up <strong>model tracking</strong> & inference pipelines.</li>
+            <li>Integrated <strong>cloud‑native serving on AWS</strong>; cut compute cost by ~25% via resource‑efficient containerization.</li>
+            <li>Partnered with cross‑functional teams to improve NLP features, QA, and <strong>secure model handling</strong>.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Time‑Series</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Project — AI Resume Enhancer <small class="muted">Jan 2025 – May 2025</small></h3>
+          <ul class="desc">
+            <li>Built NLP parser using <strong>sentence‑transformers</strong> to compare resumes vs JDs and surface missing skills.</li>
+            <li>Designed a <strong>predictive scoring engine</strong> optimized for ATS; exposed <strong>real‑time APIs</strong> for recruiter dashboards.</li>
+            <li>Iterated with user feedback to improve retrieval quality and matching accuracy.</li>
+          </ul>
+          <div class="tags"><span class="tag">NLP</span><span class="tag">IR</span><span class="tag">APIs</span></div>
+          <p class="desc"><a target="_blank" rel="noopener" href="https://github.com/Apurva1205/AI-RESUME-ENHANCER">GitHub → AI‑RESUME‑ENHANCER</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Project — English↔Belarusian Neural Translation <small class="muted">Aug 2024 – Dec 2024</small></h3>
+          <ul class="desc">
+            <li>Low‑resource NMT using a <strong>BERT‑GPT2</strong> style architecture with BLEU optimization & cross‑lingual attention.</li>
+            <li>Implemented transfer learning and bilingual preprocessing for accessibility in underrepresented languages.</li>
+          </ul>
+          <div class="tags"><span class="tag">NMT</span><span class="tag">Transfer Learning</span><span class="tag">BLEU</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Project — Time‑Series Forecasting for Energy Consumption <small class="muted">Aug 2023 – Dec 2023</small></h3>
+          <ul class="desc">
+            <li>Forecasted regional utility loads with <strong>ARIMA</strong> and <strong>LSTM</strong> models; built planning pipelines.</li>
+            <li>Added anomaly detection & alerting to improve infrastructure resilience.</li>
+          </ul>
+          <div class="tags"><span class="tag">ARIMA</span><span class="tag">LSTM</span><span class="tag">Anomaly Detection</span></div>
+          <p class="desc"><a target="_blank" rel="noopener" href="https://github.com/Apurva1205/Time-Series-Forecasting-For-Energy-Consumption">GitHub → Time‑Series‑Forecasting</a></p>
+        </article>
+      </div>
+    </section>
+
+    <footer>© Apurva Ravikar Chavan — Nextdoor Proposal</footer>
+  </div>
+
+  <a href="#" id="exitPreview" title="Exit preview">✖ Exit Preview</a>
+  <script>
+    // Print
+    document.getElementById('print')?.addEventListener('click', function(e){ e.preventDefault(); window.print(); });
+
+    // Preview toggle
+    (function(){
+      var previewBtn=document.getElementById('preview');
+      var exitBtn=document.getElementById('exitPreview');
+      if(previewBtn){ previewBtn.addEventListener('click', function(e){ e.preventDefault(); document.body.classList.add('preview-mode'); window.scrollTo({top:0, behavior:'smooth'}); }); }
+      if(exitBtn){ exitBtn.addEventListener('click', function(e){ e.preventDefault(); document.body.classList.remove('preview-mode'); }); }
+    })();
+
+    // Mock A/A + CUPED demo
+    (function(){
+      function randn(){ let u=0,v=0; while(u===0) u=Math.random(); while(v===0) v=Math.random();
+        return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); }
+      function normalCdf(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+      function erf(x){ const a1=0.254829592,a2=-0.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=0.3275911;
+        const sign=x<0?-1:1; x=Math.abs(x); const t=1/(1+p*x);
+        const y=1-((((a5*t+a4)*t+a3)*t+a2)*t+a1)*t*Math.exp(-x*x); return sign*y; }
+      function run(){
+        const n=5000, base=0.18; let preC=[], ctrl=[], varr=[];
+        for(let i=0;i<n;i++){ preC.push(base + 0.05*randn()); }
+        for(let i=0;i<n;i++){ ctrl.push(base + 0.04*randn() + 0.25*(preC[i]-base)); }
+        for(let i=0;i<n;i++){ varr.push(base + 0.04*randn() + 0.25*(preC[i]-base) + 0.0005*randn()); }
+        const mean=a=>a.reduce((s,x)=>s+x,0)/a.length;
+        const variance=(a,m)=>a.reduce((s,x)=>s+(x-m)*(x-m),0)/(a.length-1);
+        const mc=mean(ctrl), mv=mean(varr);
+        const vc=variance(ctrl,mc), vv=variance(varr,mv);
+        const se=Math.sqrt(vc/n + vv/n); const diff=mv-mc; const z=diff/se; const p=2*(1-normalCdf(Math.abs(z)));
+        const yAll=ctrl.concat(varr), xAll=preC.concat(preC); const my=mean(yAll), mx=mean(xAll);
+        const cov=(a,b,ma,mb)=>a.reduce((s,_,i)=>s+(a[i]-ma)*(b[i]-mb),0)/(a.length-1);
+        const theta = cov(yAll,xAll,my,mx) / variance(xAll,mx);
+        const adj = yAll.map((y,i)=> y - theta*(xAll[i]-mx));
+        const varY=variance(yAll,my), varAdj=variance(adj,mean(adj)); const vr = Math.max(0, 1 - varAdj/varY);
+        const pct=v=> (v*100).toFixed(2)+'%';
+        document.getElementById('aa-effect').textContent = pct(diff);
+        document.getElementById('aa-se').textContent = pct(se);
+        document.getElementById('aa-p').textContent = p.toFixed(3);
+        document.getElementById('cuped-vr').textContent = (vr*100).toFixed(1)+'%';
+      }
+      document.getElementById('run-aa')?.addEventListener('click', e => { e.preventDefault(); run(); });
+      document.getElementById('explain-aa')?.addEventListener('click', e => {
+        e.preventDefault(); alert('A/A checks platform integrity (expect ~0 effect, high p). CUPED uses a pre-period covariate to reduce variance and boost power.');
+      });
+    })();
+  </script>
+</body>
+</html>
